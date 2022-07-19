@@ -1,0 +1,26 @@
+<form [formGroup]="testForm">
+    <div class = "form-group">
+        <label for = "firstNumber">First Number</label>
+        <input type = "text" class = "form-control"  formControlName = "firstNumber" 
+            (change) = "onTestFormChange(testForm.get('firstNumber')?.value, testForm.get('secondNumber')?.value)" 
+            placeholder ="Enter First Number"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <div class = "alert alert-danger" *ngIf="testForm.get('firstNumber')?.invalid &&  testForm.get('firstNumber')?.touched">
+            First Number is required
+        </div>
+    </div>
+    <div class = "separator"></div>
+
+    <div class = "form-group">
+        <label for = "secondNumber">Second Number</label>
+        <input type = "text" class = "form-control" formControlName = "secondNumber" 
+        (change) = "onTestFormChange(testForm.get('firstNumber')?.value, testForm.get('secondNumber')?.value)" 
+        placeholder ="Enter Second Number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <div class = "alert alert-danger" *ngIf="testForm.get('secondNumber')?.invalid &&  testForm.get('secondNumber')?.touched">
+            Second Number is required
+        </div>
+    </div>
+    <div class = "output">
+     </div>
+     <span class  = "output-value" *ngIf="showOutput">{{output}}</span>
+ </form>
