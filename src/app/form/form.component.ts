@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NumberValidator } from './number-validator'  // import custom validator
 
 @Component({
   selector: 'app-form',
@@ -23,8 +24,8 @@ export class FormComponent implements OnInit {
   // Form controls for all form fields are created here along with their validations
   createFormControls() : void{
     this.testForm = new FormGroup({
-      firstNumber:  new FormControl(null,[Validators.required]),
-      secondNumber: new FormControl(null, [Validators.required])
+      firstNumber:  new FormControl(null,[Validators.required,NumberValidator.isNumbericValue]),
+      secondNumber: new FormControl(null, [Validators.required, NumberValidator.isNumbericValue])
 
     })
   }  
