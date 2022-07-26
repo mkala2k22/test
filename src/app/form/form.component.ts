@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NumberValidator } from './number-validator'  // import custom validator
+import { NumberValidator } from '../validators/number-validator'  // import custom validator
 
 @Component({
   selector: 'app-form',
